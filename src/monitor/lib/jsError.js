@@ -33,7 +33,6 @@ export function injectJsError() {
             })
         }
     }, true)
-
     // 监听全局异步（promise）未捕获的错误
     window.addEventListener('unhandledrejection', (event) => {
         console.log('event: ', event)
