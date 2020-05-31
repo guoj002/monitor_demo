@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端监控SDK</title>
+</head>
+<body>
+    <div id="container">
+        <div class="content demo">
+            <input id="errorBtn" type="button" value="点击抛出错误" onclick="errprClick()" />
+            <input id="promiseErrorBtn" type="button" value="点击抛出Promise错误" onclick="promiseErrprClick()" />
+        </div>
+    </div>
+    <script>
+        function errprClick() {
+            window.someVar.error = 'error';
+        }
+        function promiseErrprClick() {
+            new Promise((resolve, reject) => {
+                window.someVar.error = 'error';
+            })
+        }
+    </script>
+    <script src = 'someError.js' ></script>
+</body>
+</html>

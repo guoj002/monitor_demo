@@ -1,0 +1,34 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add webpack
+
+PATH: 
+  /usr/local/Cellar/mongodb/4.0.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/mongodb/4.0.2/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  11.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://172.16.116.19:7001/webpack: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/lib/node_modules/yarn/lib/cli.js:141408:19)
+      at listOnTimeout (timers.js:327:15)
+      at processTimers (timers.js:271:5)
+
+npm manifest: 
+  {
+    "name": "monitor_demo",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
