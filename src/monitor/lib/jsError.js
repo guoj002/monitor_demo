@@ -10,23 +10,22 @@ export function injectJsError() {
     window.addEventListener('error', (event) => {
         console.log('event: ', event)
         let lastEvent = getLastEvent() // 最后一个交互事件
-        if (event.target && (event.target.src || event.target.href)) {
+        if (event.target && (event.target.src || event.target.href)) { // 资源异常
             tracker.send({
                 kind: 'stability', // 监控指标大类
                 type: 'error', // 小类型 这是一个错误
-                errorType: 'resourceError', // JS执行错误
+                errorType: 'resourceError', // 资源异常
                 filename: event.target.src || event.target.href, // 哪个文件报错了
                 tagName: event.target.tagName, // Script
                 selector: getSelector(event.target) // 代表最后一个操作的元素
             })
-        } else {
+        } else { // JS错误
             tracker.send({
                 kind: 'stability', // 监控指标大类
                 type: 'error', // 小类型 这是一个错误
                 errorType: 'jsError', // JS执行错误
-                // url: '', // 访问哪个路径 报错了
-                message: event.message, // 报错信息
                 filename: event.filename, // 哪个文件报错了
+                message: event.message, // 报错信息
                 position: `${event.lineno}:${event.colno}`, // 
                 stack: getStack(event.error.stack),
                 selector: lastEvent ? getSelector(lastEvent.path) : '' // 代表最后一个操作的元素
